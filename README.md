@@ -15,3 +15,12 @@ sfdx force:org:create edition=Developer -a [set alias name of scratch Org] -v [a
 
 5. Set Default Org
 sfdx force:config:set defaultusername=[ORG ALIAS]
+
+6. Push VS Code Metadata to Default Org and overwrite conflicts
+sfdx force:source:push -f 
+
+7. Pull Default Org Metadata to VS Code and overwrite conflicts
+sfdx force:source:pull -f
+
+8. Clone the Repo from the GitHub Repository
+git clone [Repository Remote URL]
