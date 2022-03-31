@@ -1,0 +1,104 @@
+===========================================================================
+**Pre-Requisite** 
+Java and Salesforce CLI should be Installed.
+
+Link to install Salesforce CLI : https://developer.salesforce.com/tools/sfdxcli
+
+============================================================================
+
+============================================================================
+**Validate Salesforce CLI is installed**
+In Command Prompt Run:
+java -version
+**Java Version should be prompt
+
+sfdx version
+**Salesforce CLI Versions should appear.
+
+Additionally run sfdx update from time to time to update Salesforce CLI
+==========================================================================
+
+==========================================================================
+Salesforce CLI Command Reference Guide Link : https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm
+
+Run sfdx --help to view details and examples of command and topics.
+
+Take help from SFDX
+sfdx force:auth:web:login --help
+** This will bring help menu related to web server flow
+
+Authorize an Org
+sfdx auth:web:login -r https://*.my.salesforce.com -a DevAccAug
+
+*-r URL/Domain for authenication of Source Org
+*-a Set Alias name of Target Org
+
+**This will Open Login Page of the custom URL, once user will enter credential and authenicate in browser CLI will prompt, Success Message.
+
+
+View all Org Alias
+sfdx force:alias:list
+** It displays all the aliases that has been authenticated with Salesforce CLI
+
+
+Open Org from CLI
+sfdx force:org:open -u DevAccAug
+** It opens the alias Org in the browser
+
+================================================================================
+
+===============================================================================
+Create a package.xml for the component for deployment.
+
+Sample File link : https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm
+
+Sample Package:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <version>52.0</version>
+</Package>
+
+**Create a Package and specify component that need to be retreived from Source Org.
+
+//Retreive Metadata 
+sfdx force:mdapi:retrieve --help
+** Opens help options for mdapi topics
+
+sfdx force:mdapi:retrieve -k "Package.xml" -r "C:\Deployment Test" -u DevAccAug
+*-k Package Name
+*-r Directory Path
+*-u alias Name
+
+**It should create an unpackaged.zip. It will contains the Source code.
+===============================================================================
+
+
+================================================================================
+** Authenticate Target Org for the deployment
+sfdx auth:web:login -r https://*.my.salesforce.com -a QAAccAug
+
+
+Deployment sfdx force:mdapi:deploy -c -f "C:\Deployment Test\unpackaged.zip" -u QAAccAug
+** It will validate the Package
+*-c specifies that only validation should run
+*-f Full Path along with Package Name
+*-u alias name of the Target Org
+
+
+>sfdx force:mdapi:deploy:report -u QAAccAug
+** It will fetch the Progress Status of validation
+*-u alias name of the Target Org
+
+==================================================================================
+Deployemnt sfdx force:mdapi:deploy -f "C:\Deployment Test\unpackaged.zip" -u QAAccAug
+** It will deploy the Package
+*-f Full Path along with Package Name
+*-u alias name of the Target Org
+
+>sfdx force:mdapi:deploy:report -u QAAccAug
+** It will fetch the Progress Status of deployment
+===================================================================================
