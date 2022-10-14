@@ -1,0 +1,2 @@
+// Change default Org
+sfdx force:config:set defaultusername=aliasName
