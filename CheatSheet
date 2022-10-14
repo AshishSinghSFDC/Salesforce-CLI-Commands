@@ -1,2 +1,5 @@
 // Change default Org
 sfdx force:config:set defaultusername=aliasName
+
+//Open Default Org
+sfdx force:org:open
