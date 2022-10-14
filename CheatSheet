@@ -3,3 +3,6 @@ sfdx force:config:set defaultusername=aliasName
 
 //Open Default Org
 sfdx force:org:open
+
+//Retreive all components from Package.xml
+sfdx force:source:retrieve -x "CompletePathTillIncludingPackage.xml"
