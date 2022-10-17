@@ -6,3 +6,6 @@ sfdx force:org:open
 
 //Retreive all components from Package.xml
 sfdx force:source:retrieve -x "CompletePathTillIncludingPackage.xml"
+
+//Mass create Custom Metadata from CSV
+https://sfdclesson.com/2021/02/20/mass-insert-custom-metadata-type-records/
