@@ -8,4 +8,5 @@ sfdx force:org:open
 sfdx force:source:retrieve -x "CompletePathTillIncludingPackage.xml"
 
 //Mass create Custom Metadata from CSV
-https://sfdclesson.com/2021/02/20/mass-insert-custom-metadata-type-records/
+sfdx force:cmdt:record:insert --filepath "C:\Users\Directory\Downloads\COUNTRY.csv" --typename CSTMDT__mdt
+//https://sfdclesson.com/2021/02/20/mass-insert-custom-metadata-type-records/
