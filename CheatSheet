@@ -19,3 +19,6 @@ sfdx force:source:deploy -x "CompletePathTillIncludingPackage.xml" -c
 
 //Deploy all components from Package.xml
 sfdx force:source:deploy -x "CompletePathTillIncludingPackage.xml"
+
+//Check deployment status
+sfdx force:source:deploy:report
