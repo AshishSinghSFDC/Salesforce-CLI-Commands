@@ -13,3 +13,9 @@ sfdx force:cmdt:record:insert --filepath "C:\Users\Directory\Downloads\COUNTRY.c
 
 //Display all the org
 sfdx force:org:list 
+
+//Validate all components from Package.xml
+sfdx force:source:deploy -x "CompletePathTillIncludingPackage.xml" -c
+
+//Deploy all components from Package.xml
+sfdx force:source:deploy -x "CompletePathTillIncludingPackage.xml"
