@@ -1,0 +1,10 @@
+Uninstall Salesforce CLI
+--------------------------
+1. Select Start > Control Panel > Programs > Programs and Features.
+2. Select SFDX CLI, and click Uninstall.
+3. Inside your home directory, delete these two directories:
+    .config\sfdx
+    .config\sf
+4. If Salesforce CLI is still installed, delete these directories:
+%LOCALAPPDATA%\sfdx
+%LOCALAPPDATA%\sf
